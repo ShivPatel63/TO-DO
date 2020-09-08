@@ -36,6 +36,7 @@
                     <label for="discription" class="mr-auto">CATEGORY</label>
                     <select class="form-control border-0 shadow-none bg-light" placeholder="Choose a Category"
                         name="category" required>
+                        <option disabled selected hidden>Choose a category</option>
                         <option value="personal">Personal</option>
                         <option value="school">School</option>
                         <option value="collage">Collage</option>
@@ -57,16 +58,20 @@
             </div>
         </form>
 
+        <!-- ********************Searchbox for category search********************** -->
+
+
         <form class="form-inline my-2 my-lg-0 d-flex justify-content-center py-3">
             <input class="form-control mr-sm-2 " id="searchTxt" type="search" placeholder="Search By Category" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
+
         <!-- ********************to-do list of details********************** -->
 
         <div class="container-fluid p-0 m-0  border-bottom border-dark ">
             <table class="table table-striped">
                 <form method="POST" action="/delete-notes">
-
                     <thead class="thead ">
                         <tr>
                             <th scope="col">
@@ -81,21 +86,19 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
                         <% for (let i of todo_list){%>
-                        <tr class="tr_animate d-grid">
-                            <th scope="row">
-                                <div class="form-check">
-                                    <input class="form-check-input position-static checkedtodo" name="checked"
-                                        type="checkbox" value="<%=i._id%>">
-                                </div>
-                            </th>
-                            <td><b><%=i.description%></b></td>
-                            <td name="date "><i class="far fa-calendar-alt text-center"></i> <%=i.date.toDateString()%>
-                            </td>
-                            <td class="<%=i.category%> text-center cati"></td>
-                        </tr>
+                            <tr class="tr_animate d-grid">
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input position-static checkedtodo" name="checked"
+                                            type="checkbox" value="<%=i._id%>">
+                                    </div>
+                                </th>
+                                <td><b><%=i.description%></b></td>
+                                <td name="date "><i class="far fa-calendar-alt text-center"></i> <%=i.date.toDateString()%>
+                                </td>
+                                <td class="<%=i.category%> text-center cati"></td>
+                            </tr>
                         <%}%>
                         <div class=" bg-light  border-bottom border-dark delete">
                             <button class="btn btn-danger delete-contact btn-lg my-2 d-block mx-auto">
